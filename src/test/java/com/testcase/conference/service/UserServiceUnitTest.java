@@ -1,8 +1,8 @@
 package com.testcase.conference.service;
 
-import com.testcase.conference.Repository.UserRepository;
 import com.testcase.conference.dto.UserDto;
 import com.testcase.conference.entity.User;
+import com.testcase.conference.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

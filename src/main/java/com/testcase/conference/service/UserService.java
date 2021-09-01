@@ -1,8 +1,8 @@
 package com.testcase.conference.service;
 
-import com.testcase.conference.Repository.UserRepository;
 import com.testcase.conference.dto.UserDto;
 import com.testcase.conference.entity.User;
+import com.testcase.conference.repository.UserRepository;
 import com.testcase.conference.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,9 +13,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 import static org.springframework.http.ResponseEntity.status;
 
@@ -33,12 +35,8 @@ public class UserService implements UserDetailsService {
     }
 
     public List<UserDto> findAll() {
-        List<UserDto> userDtos = new ArrayList<>();
         List<User> userList = userRepository.findAll();
-        for (User user : userList){
-            userDtos.add(mapUserToDto(user));
-        }
-        return userDtos;
+        return userList.stream().map(this::mapUserToDto).collect(Collectors.toList());
     }
 
     public ResponseEntity<UserDto> findById(UUID uuid) {

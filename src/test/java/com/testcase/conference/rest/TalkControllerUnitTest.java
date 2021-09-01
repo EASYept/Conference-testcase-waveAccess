@@ -3,8 +3,6 @@ package com.testcase.conference.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.testcase.conference.dto.TalkDto;
-import com.testcase.conference.dto.UserDto;
-import com.testcase.conference.entity.User;
 import com.testcase.conference.security.JwtProvider;
 import com.testcase.conference.service.TalkService;
 import com.testcase.conference.service.UserService;
@@ -27,11 +25,10 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-@WebMvcTest(TalkRest.class)
-class TalkRestUnitTest {
+@WebMvcTest(TalkController.class)
+class TalkControllerUnitTest {
 
     @MockBean
     TalkService talkService;
@@ -87,11 +84,4 @@ class TalkRestUnitTest {
     }
 
 
-    @Test
-    void updateTalk() {
-    }
-
-    @Test
-    void deleteTalk() {
-    }
 }

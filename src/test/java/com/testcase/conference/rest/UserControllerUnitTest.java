@@ -1,9 +1,6 @@
 package com.testcase.conference.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.testcase.conference.Repository.RoomRepository;
-import com.testcase.conference.Repository.TalkRepository;
-import com.testcase.conference.Repository.UserRepository;
 import com.testcase.conference.dto.UserDto;
 import com.testcase.conference.entity.User;
 import com.testcase.conference.security.JwtProvider;

@@ -1,7 +1,6 @@
 package com.testcase.conference.rest;
 
 import com.testcase.conference.dto.TalkDto;
-import com.testcase.conference.entity.Talk;
 import com.testcase.conference.service.TalkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -13,13 +12,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/talk")
-@CrossOrigin(origins = "http://localhost:4200")
-public class TalkRest {
+public class TalkController {
 
     private final TalkService talkService;
 
     @Autowired
-    public TalkRest(TalkService talkService) {
+    public TalkController(TalkService talkService) {
         this.talkService = talkService;
     }
 

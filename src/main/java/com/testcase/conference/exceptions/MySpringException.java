@@ -1,5 +1,8 @@
 package com.testcase.conference.exceptions;
 
+/*
+TODO replace with more informative exceptions
+ */
 public class MySpringException extends RuntimeException {
 
 

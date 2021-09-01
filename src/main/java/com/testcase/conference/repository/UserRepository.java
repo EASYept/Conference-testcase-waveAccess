@@ -1,4 +1,4 @@
-package com.testcase.conference.Repository;
+package com.testcase.conference.repository;
 
 import com.testcase.conference.entity.User;
 import org.springframework.data.repository.CrudRepository;

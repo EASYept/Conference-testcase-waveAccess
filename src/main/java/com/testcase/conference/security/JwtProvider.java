@@ -16,7 +16,7 @@ import static io.jsonwebtoken.Jwts.parser;
 
 @Service
 public class JwtProvider {
-
+    /* Key store for jwt */
     private KeyStore keyStore;
 
     @PostConstruct
@@ -33,7 +33,6 @@ public class JwtProvider {
 
     public String generateToken(Authentication authentication) {
         UserDetailsImpl principal = (UserDetailsImpl) authentication.getPrincipal();
-        System.out.println("PRINCIPAL || " + principal);
         return Jwts.builder()
                 .setSubject(principal.getUsername())
                 .signWith(getPrivateKey())

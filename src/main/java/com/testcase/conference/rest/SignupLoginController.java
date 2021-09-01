@@ -1,30 +1,28 @@
 package com.testcase.conference.rest;
 
-import com.testcase.conference.Repository.UserRepository;
 import com.testcase.conference.dto.LoginOrRegistrationRequest;
 import com.testcase.conference.dto.ResponseWithToken;
 import com.testcase.conference.entity.User;
+import com.testcase.conference.repository.UserRepository;
 import com.testcase.conference.service.AuthService;
-import com.testcase.conference.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
 @RequestMapping("api/auth")
-@CrossOrigin(origins = "http://localhost:4200")
-public class SignupLoginEndpoint {
+public class SignupLoginController {
 
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
     private AuthService authService;
 
     @Autowired
-    public SignupLoginEndpoint(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthService authService) {
+    public SignupLoginController(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthService authService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.authService = authService;
@@ -45,18 +43,6 @@ public class SignupLoginEndpoint {
     public ResponseWithToken login(@RequestBody LoginOrRegistrationRequest request) {
         return authService.login(request);
     }
-
-
-//    @Transactional(readOnly = true)
-//    public User getCurrentUser() {
-//        org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.
-//                getContext().getAuthentication().getPrincipal();
-//        return userService.findByLogin(principal.getUsername())
-//                .orElseThrow(() -> new UsernameNotFoundException("User name not found - " + principal.getUsername()));
-//    }
-
-
-
 
 
 }
