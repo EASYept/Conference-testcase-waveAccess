@@ -47,7 +47,7 @@ public class TalkService {
         /* Initial method */
 //        List<Talk> talks = talkRepository.findAllByUserLogin(userLogin);
         /* First way to do same thing */
-//        List<Talk> talks = talkRepository.findTalksByUser(userService.findByLogin(userLogin).orElseThrow(() -> new MySpringException("User not found")));
+//        List<Talk> talks = talkRepository.findAllBySpeakersIs(userService.findByLogin(userLogin).orElseThrow(() -> new MySpringException("User not found")));
         /* Second way to do same thing  */
         List<Talk> talks = talkRepository.findTalksBySpeakerLogin(userLogin);
 
